@@ -1,17 +1,47 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mihaela's Codding Challenge</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
-  <main>
-    <div>
-      {{{body}}}
-    </div>
-  </main>
-  <script src="./js/scripts.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mihaela's Codding Challenge</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="p-2" style="background-color: rgb(229, 229, 229);">
+      <div class="wrapper ">
+        <nav class="navbar navbar-expand-md ">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                  <p class="h5">
+                    <a  href="/">Mihaela's Codding Challenge</a>
+                  </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+                <ul class="navbar-nav ml-auto">
+                    {{#if loggedIn}}
+                    <li class="nav-item">
+                        <a href="/homepage" class="log p-2 m-1">Estimate Trip Cost</a>
+                     </li>
+                    <li class="nav-item">
+                          <a id="logout" class="log p-2 m-1">Logout</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div>
+        {{{body}}}
+      </div>
+    </main>
+  </body>
 </html>

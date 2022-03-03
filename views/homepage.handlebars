@@ -1,3 +1,55 @@
-<div>
-  Here will quote form
+<div class="container">
+  <form class="ml-5 mr-5 width-50 pt-5" method="POST">
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input
+        type="text"
+        class="form-control"
+        id="age"
+        placeholder="ex: 25, 30"
+        name="age"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="currency">Currency</label>
+      <select class="form-control" id="currency">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+        <option value="CAD">CAD</option>
+      </select>
+    </div>
+
+    <div class="form-group row text-center">
+      <label class="col-6" for="start-date">
+        Arrival
+        <br />
+        <input type="date" name="start-date"  id="start-date" />
+      </label>
+
+      <label class="col-6" for="end-date">
+        Departure
+        <br />
+        <input
+          type="date"
+          name="end-date"
+          data-value="7"
+          id="end-date"
+        />
+      </label>
+    </div>
+
+    <div class="text-center">
+      <button
+        class="p-2 submit-trip-data"
+        id="submit-trip-data"
+        type="submit"
+      >Calculate</button>
+    </div>
+
+  </form>
 </div>
+
+<script scr="./js/tripData.js"></script>
