@@ -8,30 +8,32 @@ const acceptedCredentials = {
 }
 
 module.exports = {
-
+  
   signToken: function (userCredentials) {
     if(userCredentials.username === acceptedCredentials.username && userCredentials.password === acceptedCredentials.password){
       const payload = { username: acceptedCredentials.username, password: acceptedCredentials.password };
       return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     } else {
-      res.json({token: null, isAuth:false, message:'Unauthorized User. Please Try Again Later With Different Credentials!'})
+      return {token: null, isAuth:false, message:'Unauthorized User. Please Try Again Later With Different Credentials!'}
     }
     
   },
-  
-  isAuth: async function (token) {
+  isAuth: async function (raw_token) {
+    let token = raw_token.split(' ')[1];
     if (!token) {
-      res.json({isAuth:false, message:'Unauthorized User. Please Try Again Later With Different Credentials!'})
+     return false
     }
     let response = await jwt.verify(token, secret, function (err, decoded) {
       if (err) {
-        throw new Error("Auth Error. Incorrect token" + err);
-      }
-      return decoded;
+        return {isErr: true, message:"Auth Error. Incorrect token" + err}
+     }
+      return {isErr : false, decoded}
     });
-    if(acceptedCredentials.username === response.data.username){
-      return true //is Authenticated
-      next()
+    if(response.isErr){
+      return false;
+    }
+    if( acceptedCredentials.username === response.decoded.data.username){
+      return true; //is Authenticated
     }
     return false;
 }}
