@@ -15,6 +15,8 @@
     "handlebars": "^4.7.6",
     "js-joda": "^1.11.0",
     "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "shado": "^1.4.0",
+    "shortid": "^2.2.16"
   }
 }
