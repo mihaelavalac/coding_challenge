@@ -56,7 +56,6 @@ function getLoad(age){
   }
 }
 
-
 function getOnePersonQuote(ageLoad, tripLength){
   const FIXED_RATE = 3;
   return FIXED_RATE * ageLoad * tripLength

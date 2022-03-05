@@ -16,6 +16,7 @@ function tripDataFormHandler(event) {
   if(!isValidAge()){
     return
   }
+
   const age = document.querySelector("input[name='age']").value.trim();
   const currencySection = document.getElementById("currency").selectedIndex;
   const currency =
@@ -69,6 +70,7 @@ function setStartingDateToday(inputName){
     document.getElementsByName(inputName)[0].defaultValue = later;
   }
 }
+
 
 function isValidAge(){
   let val = document.querySelector("input[name='age']").value.trim();

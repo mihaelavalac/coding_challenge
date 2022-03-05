@@ -1,5 +1,3 @@
-const { isAuth } = require("../middleware/auth");
-
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
@@ -8,10 +6,8 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/quote", async (req, res) => {
-  //form page, check if logged based on token, if not redirect to login page
+  // quote page
   res.render("quote");
 });
-
-
 
 module.exports = router;
