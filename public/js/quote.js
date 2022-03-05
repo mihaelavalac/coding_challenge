@@ -61,11 +61,12 @@ function tripDataFormHandler(event) {
 
 function setStartingDateToday(inputName){
   var today = new Date().toISOString().split('T')[0];
+  var later = new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().split('T')[0];
   document.getElementsByName(inputName)[0].setAttribute('min', today);
   if(inputName == 'start-date'){
     document.getElementsByName(inputName)[0].defaultValue = today;
   } else {
-    document.getElementsByName(inputName)[0].defaultValue = today;
+    document.getElementsByName(inputName)[0].defaultValue = later;
   }
 }
 
