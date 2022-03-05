@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const secret = "this-cant-be-hacked";
 const expiration = "2h";
 const acceptedCredentials = {
-  username: "test",
-  password: "Test123!",
+  username: "welcome",
+  password: "Mytest123!",
 };
 
 module.exports = {
@@ -17,13 +17,13 @@ module.exports = {
         username: acceptedCredentials.username,
         password: acceptedCredentials.password,
       };
-      return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+      return { isAuth: true, token:jwt.sign({ data: payload }, secret, { expiresIn: expiration })}
     } else {
       return {
         token: null,
         isAuth: false,
         message:
-          "Unauthorized User. Please Try Again Later With Different Credentials!",
+          "Unauthorized User. Please Try Again With Different Credentials!",
       };
     }
   },

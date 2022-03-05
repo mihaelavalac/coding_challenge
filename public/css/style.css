@@ -1,8 +1,44 @@
 body {
-  background-color: azure
+  background: #FDFBF4;
+}
+
+.bg-graduate-2 {
+  background: #6391B9;
 }
 
 .error {
   font-size: 16px;
   font-weight: 500;
+}
+
+.m-2{
+  margin: 8px !important;
+}
+.b-shadow-1 {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.input-form {
+  background-color: white;
+  padding: 20px;
+  margin: 60px auto;
+  width: 450px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.mt-2 {
+  margin-top: 8px;
+}
+.mb-2 {
+  margin-bottom: 8px;
+}
+.my-3{
+  margin-top:12px;
+  margin-bottom:12px;
+}
+.text-white{
+  color:white;
+}
+
+.d-none{
+  display: none;
 }

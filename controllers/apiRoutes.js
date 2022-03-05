@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
     password: req.body.password,
   };
   res.setHeader("Content-Type", "application/json");
-  res.json({ token: signToken(userCredentials) });
+  res.json(signToken(userCredentials));
 });
 
 function getLoad(age){

@@ -1,3 +1,5 @@
+let modalBodyEl = document.getElementById("login-modal-body");
+
 function loginFormHandler(event) {
   event.preventDefault();
 
@@ -19,9 +21,17 @@ function loginFormHandler(event) {
       var status = xhr.status;
       if (status === 0 || status == 200) {
         // The request has been completed successfully
-        localStorage.setItem("token", JSON.parse(xhr.response).token);
-        document.location.replace("/quote");
+        let response = JSON.parse(xhr.response);
+        
+        if(response.isAuth){
+          localStorage.setItem("token", response.token);
+          document.location.replace("/quote");
+        } else {
+        $('#login-message-modal').modal('toggle');
+        modalBodyEl.innerHTML = `${response.message}`
+        }
       } else {
+        $('#login-message-modal').modal('toggle');
         console.log(JSON.parse(xhr.responseText));
       }
     }
