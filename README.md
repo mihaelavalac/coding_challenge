@@ -1,7 +1,7 @@
 # coding_challenge
 ## Description
 
-  You can navigate to the deployed site on Heroku <b>[here](https://#).</b>
+  You can navigate to the deployed site on Heroku <b>[here](https://polar-peak-92719.herokuapp.com/).</b>
 
   <p><i>Purpose of the application is to help users get a quote for their Travel Insurance.</i><p>
 
