@@ -24,6 +24,11 @@ Note: Node.js is a requirement for this project and any latest version is accept
 * Username: <b>welcome</b> 
 * Password: <b>Mytest123!</b>
 
+## Opportunities for Improvement
+Creating the connection to the database using mysql would be a good step from here because it will save all the information about quotes. Moreover, right now there is a static auth process with predefined credentials, but having a process of registering users would be great. 
+
+
+
 ## Questions
 
 :octocat: Github: [mihaelavalac](https://github.com/mihaelavalac) <br>
