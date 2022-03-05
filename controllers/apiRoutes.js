@@ -7,11 +7,10 @@ router.post("/quote", async (req, res) => {
     const currency = req.body.currency;
     const startDate = req.body.startDate;
     const endDate = req.body.endDate;
-    
     res.json({
       isAuth: true,
       message: "Great job here is your result:",
-      result: {age, currency, startDate, endDate}
+      result: { age, currency, startDate, endDate },
     });
   } else {
     res.json({
@@ -19,10 +18,6 @@ router.post("/quote", async (req, res) => {
       message: "Auth Error. Please sign in to obtain this information!",
     });
   }
-
- 
-
-  //get data from request, check if is logged in and return back calculation. If not logged in redirect to a diff page
 });
 
 router.post("/login", async (req, res) => {
@@ -33,6 +28,7 @@ router.post("/login", async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.json({ token: signToken(userCredentials) });
 });
+
 
 // router.post('/logout', async (req, res) => {
 
