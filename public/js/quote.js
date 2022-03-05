@@ -1,7 +1,10 @@
 const logOutBtn = document.getElementById("log-out-btn");
+const helpBtn = document.getElementById("help-btn");
 document.getElementById("age").addEventListener("change", isValidAge);
 logOutBtn .addEventListener("click", logOut);
+helpBtn.addEventListener("click", displayHelpSettings);
 logOutBtn.classList.remove("d-none");
+helpBtn.classList.remove("d-none");
 document.querySelector(".trip-data-form").addEventListener("click", tripDataFormHandler);
 let modalBodyEl = document.getElementById("modal-body");
 setStartingDateToday('start-date');
@@ -13,7 +16,6 @@ function tripDataFormHandler(event) {
   if(!isValidAge()){
     return
   }
-
   const age = document.querySelector("input[name='age']").value.trim();
   const currencySection = document.getElementById("currency").selectedIndex;
   const currency =
@@ -36,19 +38,20 @@ function tripDataFormHandler(event) {
           const response = JSON.parse(xhr.responseText);
           const {isAuth, message, result, currency, quote_id } = response;
           if(isAuth){
+
             $('#quote-modal').modal('toggle');
             modalBodyEl.innerHTML = `<p class='m-3'>${message} <span class='text-success'>${result} ${currency}</span></p>
             <p>Here is your <span class='text-info'>Quote ID</span>: <span class='text-success'>${quote_id}</span></p>
             <p>Please reach out to us with your <span class='text-info'>Quote ID</span> if you have any questions.</p>
-            <p>Email: <a href='m&#97;il&#116;o&#58;YourCha&#110;c%65&#64;BestT&#114;i%70&#46;%63&#111;&#109;'>Y&#111;&#117;rChanc&#101;&#64;B&#101;&#115;tTrip&#46;c&#111;&#109;</a></p>
+            <p>Email: <a href='questions@besttrip.com'>question@besttrip.com</a></p>
             `;
           } else {
             localStorage.removeItem('token');
             finalQuoteEl.innerHTML = `<p> Please <a href='/'>login</a> firstly to get the quote!</p>`
           }
-          console.log(isAuth, message, result);
         } else {
-          console.log(isAuth, message, result);
+          localStorage.removeItem('token');
+          finalQuoteEl.innerHTML = `<p> Please <a href='/'>resign</a>, something went wrong.</p>`
         }
       }
     };
@@ -102,4 +105,8 @@ function isValidAge(){
 function logOut(){
   localStorage.removeItem('token');
   document.location.replace("/");
+}
+
+function displayHelpSettings(){
+  $('#quote-help-modal').modal('toggle');
 }
