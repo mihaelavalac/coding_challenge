@@ -3,11 +3,9 @@ document.getElementById("age").addEventListener("change", isValidAge);
 logOutBtn .addEventListener("click", logOut);
 logOutBtn.classList.remove("d-none");
 document.querySelector(".trip-data-form").addEventListener("click", tripDataFormHandler);
-let finalQuoteEl = document.getElementById("final-quote");
+let modalBodyEl = document.getElementById("modal-body");
 setStartingDateToday('start-date');
 setStartingDateToday('end-date');
-
-
 
 
 function tripDataFormHandler(event) {
@@ -38,10 +36,11 @@ function tripDataFormHandler(event) {
           const response = JSON.parse(xhr.responseText);
           const {isAuth, message, result, currency, quote_id } = response;
           if(isAuth){
-            finalQuoteEl.innerHTML = `<p class='m-3'>${message} <span class='text-success'>${result} ${currency}</span></p>
+            $('#quote-modal').modal('toggle');
+            modalBodyEl.innerHTML = `<p class='m-3'>${message} <span class='text-success'>${result} ${currency}</span></p>
             <p>Here is your <span class='text-info'>Quote ID</span>: <span class='text-success'>${quote_id}</span></p>
             <p>Please reach out to us with your <span class='text-info'>Quote ID</span> if you have any questions.</p>
-            <p>Email: YourChance@BestTrip.com</p>
+            <p>Email: <a href='m&#97;il&#116;o&#58;YourCha&#110;c%65&#64;BestT&#114;i%70&#46;%63&#111;&#109;'>Y&#111;&#117;rChanc&#101;&#64;B&#101;&#115;tTrip&#46;c&#111;&#109;</a></p>
             `;
           } else {
             localStorage.removeItem('token');
@@ -55,6 +54,8 @@ function tripDataFormHandler(event) {
     };
   }
 }
+
+
 function setStartingDateToday(inputName){
   var today = new Date().toISOString().split('T')[0];
   document.getElementsByName(inputName)[0].setAttribute('min', today);

@@ -18,12 +18,11 @@ router.post("/quote", async (req, res) => {
     age_array.forEach(person_age => {
       total_quote = total_quote + getOnePersonQuote(getLoad(parseInt(person_age)), tripLength);
     });
-    console.log(total_quote.toFixed(2));
     res.json({
       isAuth: true,
       message: "Thanks for accessing the portal! This is the quote:",
       result: total_quote.toFixed(2),
-      currency: currency,
+      currency,
       quote_id
     });
   } else {
@@ -56,12 +55,11 @@ function getLoad(age){
     return 1
   }
 }
+
+
 function getOnePersonQuote(ageLoad, tripLength){
   const FIXED_RATE = 3;
   return FIXED_RATE * ageLoad * tripLength
 }
-// router.post('/logout', async (req, res) => {
-
-// });
 
 module.exports = router;
