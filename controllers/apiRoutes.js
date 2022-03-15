@@ -1,6 +1,9 @@
 const router = require("express").Router();
-const { signToken, isAuth } = require("../middleware/auth");
+
 var shortid = require('shortid');
+
+const { signToken, isAuth } = require("../middleware/auth");
+
 
 router.post("/quote", async (req, res) => {
   if (await isAuth(req.headers.authorization)) {
